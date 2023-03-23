@@ -1,16 +1,28 @@
 #include "liste.h"
-int main()
+
+int main(void)
 {
- char note[] = "0123456789";
-    int nrNote = strlen(note);
-    Node *head = NULL ;
-    head = (Node *)malloc(sizeof(Node));
-    head->next = NULL ;
-    head->val = note[0];
-    for(int i = 1; i<nrNote; i++)
+    int i = 0, n = 10;
+    Node *p = NULL;
+    p = (Node *)malloc(sizeof(Node));
+    p->next = NULL;
+    p->val = i;
+    Node *head = p;
+    for (i = 1; i < n / 2; i++)
     {
-        addAtEnd(&head, note[i]);
+        addAtEnd(&head, i);
     }
+    for (i = i; i < n; i++)
+    {
+        addAtBeginning(&head, i);
+    }
+
     display(head);
-    return 0;
+    int k = 5;
+    schimba_k(head, k);
+    display(head);
+
+    Node *vector = timp();
+
+    display(vector);
 }
